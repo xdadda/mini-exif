@@ -1,0 +1,39 @@
+{
+  "name": "@xdadda/mini-exif",
+  "version": "0.1.0",
+  "description": "TIFF, EXIF, GPS, ICC, XMP meta data READER and PATCHER for JPG, PNG, HEIC, AVIF, MOV(read-only)",
+  "main": "index.js",
+  "type": "module",
+  "sideEffects": false,
+  "scripts": {
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xdadda/mini-exif.git"
+  },
+  "keywords": [
+    "EXIF",
+    "javascript",
+    "reader",
+    "writer"
+  ],
+  "author": "xdadda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xdadda/mini-exif/issues"
+  },
+  "homepage": "https://github.com/xdadda/mini-exif#readme",
+  "exports": {
+    ".": {
+      "import": "./dist/mini-exif.js",
+      "require": "./dist/mini-exif.umd.cjs"
+    }
+  },
+  "dependencies": {
+    "fflate": "^0.8.2"
+  },
+  "devDependencies": {
+    "vite": "^6.3.2"
+  }
+}
