@@ -20,7 +20,10 @@ return {
           'mini-exif':resolve(__dirname, 'src/index.js'),
         },
         name: 'mini-exif',
-      }
+      },
+      rollupOptions: {
+        external: ["fflate"],
+      },
     }
   }
 })
