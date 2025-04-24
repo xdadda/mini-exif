@@ -2,7 +2,7 @@
 Image metadata READER and EDITOR
 
 Supported metadata: TIFF, EXIF, GPS, ICC(read-only)
-Supported file formats: JPG, PNG, HEIC, AVIF, MOV(read-only) 
+Supported file formats: JPG, PNG, HEIC, AVIF, JPEG-XL(read-only), MOV(read-only) 
 
 Pure-javascript, works in Browser and Node.js
 
@@ -61,7 +61,7 @@ const tags = mini.read();
 ```
 read() returns:
 - Object: {
-  format: "PNG" | "JPG" | "HEIC" | "AVIF" | "QT",
+  format: "PNG" | "JPG" | "HEIC" | "AVIF" | "JXL" | "QT",
   exif: { ...fields...  },
   gps: { ... },
   icc: { ... },
@@ -85,7 +85,4 @@ Where:
 
 This function will PATCH data in memory
 NOTE: if patching a String field (such as tiff/Make or tiff) the new string can't exceed the original string length
-
-
-
 

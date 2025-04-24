@@ -6,13 +6,11 @@ import {qt_parseBoxes} from './qt.js'
 
 // TODO:
 // - HEIC: allow for smaller exifdata to replace existing one (with resize)
-// - JXL: finish support with patch/ replace as in HEIC
-// - JXL: add parser for ICC profiles
 // - Add XML support across formats
 // - Add JUMBF support across formats
 
 
-// support for HEIC/AVIF, JPEG, JPEG-XL, PNG, Apple Quicktime videos!!
+// support for JPEG, PNG, HEIC/AVIF, JPEG-XL, Apple Quicktime videos
 // @data: is ArrayBuffer
 // @quicktime: not strictly needed, but if set will avoid reading the whole video in memory and will just check the tail chunk/data (if provided by caller) for relevant pointer!
 export default function miniExif(data,quicktime=false) {

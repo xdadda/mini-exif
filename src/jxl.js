@@ -1,9 +1,12 @@
 import {readEXIFData} from './exif.js'
 
 import {getStringFromDB} from './tools.js'
-import brotliPromise from 'brotli-wasm';
+const brotliPromise = async()=>await import('brotli-wasm')
 
-const debug=false
+const debug=true
+
+// https://github.com/libjxl/libjxl/blob/main/doc/format_overview.md
+//NOTE colorspace is either in a ICC profile or in CICP-style Enum values
 
 // https://github.com/ImageMagick/jpeg-xl/blob/main/doc/format_overview.md
 
@@ -48,7 +51,7 @@ const debug=false
       }
 
       async function decompressBrob(data){
-        const brotli = await brotliPromise;
+        const brotli = await(await brotliPromise()).default;
         return brotli.decompress(data);
       }
 
@@ -74,6 +77,7 @@ const debug=false
           continue
         }
         if(box.str === 'brob') {
+          //const brotliPromise = await import('brotli-wasm')
           const key = getStringFromDB(dataView,box.contentOffset,4)
           debug&&console.log('brob>',key,box.length-12)
           if(key==='Exif'){
@@ -132,8 +136,9 @@ const debug=false
     return {
       load:(arrayBuffer)=>{filedata=arrayBuffer;updateExif();}, //input file's arrayBuffer
       read:()=>exiftags, //returns EXIF tags
+      extract:()=>exifdata,
+      image:()=>filedata,
+      download:(name)=>downloadFile(filedata,name),
     }
 
   }
-
-

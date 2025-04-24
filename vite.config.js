@@ -22,7 +22,7 @@ return {
         name: 'mini-exif',
       },
       rollupOptions: {
-        external: ["fflate"],
+        external: ["fflate","brotli-wasm"],
       },
     }
   }
