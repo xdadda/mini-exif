@@ -1,6 +1,6 @@
 {
   "name": "@xdadda/mini-exif",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "TIFF, EXIF, GPS, ICC meta data READER and PATCHER for JPG, PNG, HEIC, AVIF, MOV(read-only)",
   "main": "index.js",
   "type": "module",
