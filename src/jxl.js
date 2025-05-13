@@ -3,7 +3,7 @@ import {readEXIFData} from './exif.js'
 import {getStringFromDB} from './tools.js'
 const brotliPromise = async()=>await import('brotli-wasm')
 
-const debug=true
+const debug=false
 
 // https://github.com/libjxl/libjxl/blob/main/doc/format_overview.md
 //NOTE colorspace is either in a ICC profile or in CICP-style Enum values

@@ -114,7 +114,7 @@ const debug=false
         tags.meta=meta
         if(tags.meta['location.ISO6709']) {
           const gps=tags.meta['location.ISO6709'].value
-          tags.gps={GPSLatitude:parseFloat(gps), GPSLongitude:parseFloat(gps.slice(8)), GPSAltitude:parseFloat(gps.slice(17))}
+          tags.gps={GPSLatitude:{value:parseFloat(gps)}, GPSLongitude:{value:parseFloat(gps.slice(8))}, GPSAltitude:{value:parseFloat(gps.slice(17))}}
         }
     }
     debug&&console.log(tags)

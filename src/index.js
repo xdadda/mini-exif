@@ -1,7 +1,7 @@
 import {exifJPG} from './jpg.js'
 import {exifPNG} from './png.js'
 import {exifHEIC} from './heic.js'
-import {exifJXL} from './jxl.js'
+//import {exifJXL} from './jxl.js'
 import {qt_parseBoxes} from './qt.js'
 
 // TODO:
@@ -31,9 +31,11 @@ export default function miniExif(data,quicktime=false) {
       return exifHEIC(data)
     }
     ///// JPEG-XL ////////////////////////////////
+    /*
     else if (dataView.getUint32(4)===0x4A584C20 && dataView.getUint32(8)===0x0D0A870A) {
       return exifJXL(data)
     }
+    */
     ///// APPLE QuickTime-MOV ///////////////////////
     else if(quicktime || (dataView.getUint32(4)===0x66747970 && dataView.getUint32(8)===0x71742020) ){ //checking that file starts with magicstring 'ftypqt  ' at offset 0x4 
       return qt_parseBoxes(data)
